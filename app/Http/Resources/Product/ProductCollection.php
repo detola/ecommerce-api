@@ -18,7 +18,9 @@ class ProductCollection extends ProductResource
             'name' => $this->name,
             'totalPrice' => round($this->price - (($this->discount/100) * $this->price), 2),
             'stock' => $this->stock == 0 ? 'Out of stock' : $this->stock,
-            'links' => route('products.show', $this->id),
+            'href' => [
+                'link' => route('products.show', $this->id),
+            ]
         ];
     }
 }
